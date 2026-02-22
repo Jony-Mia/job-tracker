@@ -8,10 +8,62 @@
     <link rel="stylesheet" href="style/daisyui@5.css">
 </head>
 <body>
-    
+    <header class="container mt-20 m-auto w-[80%]">
+        <h1 class="text-2xl font-bold ">Job Application Tracker</h1>
+    </header>
+    <section class="my-6">
+        
+        <section>
+           <section class="grid w-[80%] m-auto gap-30 grid-cols-3">
+             <div class=" shadow  rounded p-4">
+                <h1 class="text-xl ">Total</h1> 
+                <p class="text-lg font-bold text-[24px]  mt-3" id="total">0</p>
+             </div>
+             <div class="shadow  rounded p-4">
+                <h1>Interview</h1>
+                <p id="total" class="text-lg text-success  text-[24px] font-bold mt-3">0</p>
+             </div>
+             <div class="shadow rounded p-4">
+                <h1>Total</h1>
+                <p id="total" class="text-lg text-error text-[24px] font-bold mt-3">0</p>
+             </div>
+           </section>
+        </section>
 
+    </section>
+    <section>
+        <section class="flex justify-between mt-10 w-[80%] m-auto">
+            <h1 class="font-[600] text-[20px]">Available Jobs</h1>
+            <span id="total">8 Jobs</span>
+        </section>
+    </section>
+    <section class=" mt-10 w-[80%] m-auto">
+        <button class="btn text-white btn-info" >All</button>
+        <button class="btn " >Interview</button>
+        <button class="btn " >Rejected</button>
+    </section>
 
-    
+    <section class="mt-10 w-[82%] m-auto">
+        <section id="card-section">
+            <div class="card shadow my-3">
+                <div class="card-body">
+                    <h1 class="card-title">Mobile First Corp</h1>
+                    <p class="mt-0 p-0">React Native Developer</p>
+                    <p class="my-2">Remote •Full-time •$130,000 - $175,000</p>
+                    <div>
+                        <button class="btn uppercase bg-[#eef4ff]">Not Applied</button>
+                        
+                        <p class="my-2">Build cross-platform mobile applications using React Native. Work on products used by millions of users worldwide.</p>
+                    </div>
+                    <div class="card-actions">
+                        <button class="btn btn-success hover:text-white btn-outline text-success">Interview</button>
+                        <button class="btn btn-error hover:text-white btn-outline text-error">Interview</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </section>
     <script src="style/tailwind.js"></script>
+    <script src="main.js"></script>
 </body>
 </html>
