@@ -84,8 +84,8 @@ let jobs = [
         description: 'We are looking for an experienced Frontend Developer to build scalable web applications using React and TypeScript. You will work with a talented team on cutting-edge projects.'
     },
 ];
-let interview = [];
-let reject = [];
+// let interview = [];
+// let reject = [];
 
 
 let filterState= "all";
@@ -94,6 +94,7 @@ function clearDashboard(){
     total.textContent= jobs.length;
     interviewTotal.textContent = jobs.filter(job=>job.state==="interview").length;
     rejectTotal.textContent = jobs.filter(job=>job.state==="rejected").length;
+    totalAll.textContent = `${jobs.length}`
 }
 
 function renderJob(){
@@ -145,11 +146,33 @@ function renderJob(){
 }
 
 function setState(id, state){
-    jobs= jobs.map(task =>task.id=== id ? {...task, state} : task)
+    jobs= jobs.map(task =>{
+        if (state==='interview') {
+            
+        task.status="Applied";
+        }else{
+            
+        task.status="Rejected";
+        }
+        return task.id=== id ? {...task, state} : task;
+    })
+    
     clearDashboard();
     renderJob()
 }
 function filterJob(type){
+
+      if (type==='interview')
+         {
+            totalAll.textContent= `${jobs.filter(job=>job.state==="interview").length} of 8`
+        } 
+        else if(type==='rejected'){
+            totalAll.textContent= `${jobs.filter(job=>job.state==="rejected").length}of 8`;    
+        }else{
+              totalAll.textContent=jobs.length
+        }
+        
+    
     filterState= type;
     renderJob()
 }
