@@ -5,7 +5,7 @@ let cardSection = document.getElementById('card-section');
 let interviewSection = document.getElementById('interviewSection')
 let rejectSection = document.getElementById('rejectSection');
 let rejectTotal = document.getElementById('rejectTotal');
-
+let removeEle = document.getElementById('removeEle');
 
 let jobs = [
     {
@@ -74,41 +74,9 @@ let jobs = [
     },
 ];
 let interview = [];
-let reject= [];
+let reject = [];
 
-
-total.textContent = jobs.length
-totalAll.textContent = `${jobs.length} Jobs`
-
-function jobBox(data) {
-    data.forEach(jobsCard => {
-        let card = ` <div class="card shadow my-3">
-                <div class="card-body">
-                    <h1 class="card-title">${jobsCard.title}</h1>
-                    <p class="mt-0 p-0">${jobsCard.subtitle}</p>
-                    <p class="my-2">${jobsCard.info}</p>
-                    <div>
-                        <button class="btn uppercase bg-[#eef4ff]">${jobsCard.status}</button>
-                        
-                        <p class="my-2">${jobsCard.description}</p>
-                    </div>
-                    <div class="card-actions">
-                        <button onclick="selected(${jobsCard.id})"  class="btn btn-success hover:text-white btn-outline text-success">Interview</button>
-                        <button  onclick="rejected(${jobsCard.id})"  class="btn btn-error hover:text-white btn-outline text-error">Interview</button>
-                    </div>
-                </div>
-            </div>`
-        let cardBody = document.createElement('div');
-        cardBody.innerHTML = card
-        cardSection.appendChild(cardBody);
-
-    })
-}
-
-
-function jobFilterBox(data) {
-    data.forEach(jobsCard => {
-        let card = ` <div class="card shadow my-3">
+/*   let card = ` <div class="card shadow my-3">
                 <div class="card-body">
                     <h1 class="card-title">${jobsCard.title}</h1>
                     <p class="mt-0 p-0">${jobsCard.subtitle}</p>
@@ -120,101 +88,20 @@ function jobFilterBox(data) {
                     </div>
                     <div class="card-actions">
                         <button class="btn btn-success hover:text-white btn-outline text-success">Interview</button>
-                        <button  onclick="rejecting(${jobsCard.id})"  class="btn btn-error hover:text-white btn-outline text-error">Interview</button>
+                         <button  onclick="rejected(${jobsCard.id})"  class="btn btn-error hover:text-white btn-outline text-error">Reject</button>
                     </div>
                 </div>
             </div>`
-        let cardBody = document.createElement('div');
-        cardBody.innerHTML = card
-       
-        interviewSection.appendChild(cardBody);
 
-    })
-   
-}
+total.textContent = jobs.length;
+totalAll.textContent = `${jobs.length} Jobs`;
+  let empty = ` <div id="emptyCard" class="card">
+                <div class="card-body m-auto">
+                    <img class="m-auto" src="assignment_7959593 1.png" width="60" alt="">
+                    <h1  class="card-title  text-center block">No jobs available</h1>
+                    <p >Check back soon for new job opportunities</p>
 
-function rejectFilterBox(data) {
-    data.forEach(jobsCard => {
-        let card = ` <div class="card shadow my-3">
-                <div class="card-body">
-                    <h1 class="card-title">${jobsCard.title}</h1>
-                    <p class="mt-0 p-0">${jobsCard.subtitle}</p>
-                    <p class="my-2">${jobsCard.info}</p>
-                    <div>
-                        <button class="btn uppercase bg-[#eef4ff]">${jobsCard.status}</button>
-                        
-                        <p class="my-2">${jobsCard.description}</p>
-                    </div>
-                    <div class="card-actions">
-                        <button class="btn btn-success hover:text-white btn-outline text-success">Interview</button>
-                        <button class="btn btn-error hover:text-white btn-outline text-error">Interview</button>
-                    </div>
                 </div>
-            </div>`
-        let cardBody = document.createElement('div');
-        cardBody.innerHTML = card
+             </div>`; */
+ 
 
-        rejectSection.appendChild(cardBody);
-
-    })
-}
-
-function selected(event) {
-    jobs.forEach(element => {
-
-        if (element.id === event) {
-            console.log(element);
-            element.status = "Applied"
-            if (!interview.includes(element.id === event)) {
-                interview.push(element)
-                jobFilterBox(interview)
-            }
-        }
-        interviewTotal.textContent = interview.length
-    });
-}
-
-function jobFilterBox(data) {
-    data.forEach(jobsCard => {
-        let card = ` <div class="card shadow my-3">
-                <div class="card-body">
-                    <h1 class="card-title">${jobsCard.title}</h1>
-                    <p class="mt-0 p-0">${jobsCard.subtitle}</p>
-                    <p class="my-2">${jobsCard.info}</p>
-                    <div>
-                        <button class="btn uppercase bg-[#eef4ff]">${jobsCard.status}</button>
-                        
-                        <p class="my-2">${jobsCard.description}</p>
-                    </div>
-                    <div class="card-actions">
-                        <button class="btn btn-success hover:text-white btn-outline text-success">Interview</button>
-                        <button class="btn btn-error hover:text-white btn-outline text-error">Interview</button>
-                    </div>
-                </div>
-            </div>`
-        let cardBody = document.createElement('div');
-        cardBody.innerHTML = card
-
-        interviewSection.appendChild(cardBody);
-
-    })
-}
-
-function rejected(event) {
-    jobs.forEach(element => {
-        if (element.id === event) {
-            console.log(element);
-            element.status = "Rejected"
-            reject.push(element)
-            rejectFilterBox(reject)            
-        }
-        rejectTotal.textContent = reject.length
-    });
-}
-
-
-function jobFilter(filter) {
-    console.log(filter);    
-}
-
-jobBox(jobs)

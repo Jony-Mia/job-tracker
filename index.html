@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,29 +9,36 @@
     <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v7.2.0/css/fontawesome.css">
     <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v7.2.0/css/regular.css">
     <link rel="stylesheet" href="style/daisyui@5.css">
+    <!-- <style>
+        :root {
+
+            --color-base-200: none !important;
+        }
+    </style> -->
 </head>
+
 <body>
-    
+
     <header class="container mt-20 m-auto w-[80%]">
         <h1 class="text-2xl font-bold ">Job Application Tracker</h1>
     </header>
     <section class="my-6">
-        
+
         <section>
-           <section class="grid w-[80%] m-auto gap-30 grid-cols-3">
-             <div class=" shadow  rounded p-4">
-                <h1 class="text-xl ">Total</h1> 
-                <p class="text-lg font-bold text-[24px]  mt-3" id="total">0</p>
-             </div>
-             <div class="shadow  rounded p-4">
-                <h1>Interview</h1>
-                <p id="interviewTotal" class="text-lg text-success  text-[24px] font-bold mt-3">0</p>
-             </div>
-             <div class="shadow rounded p-4">
-                <h1>Total</h1>
-                <p id="rejectTotal" class="text-lg text-error text-[24px] font-bold mt-3">0</p>
-             </div>
-           </section>
+            <section class="grid w-[80%] m-auto gap-30 grid-cols-3">
+                <div class=" shadow  rounded p-4">
+                    <h1 class="text-xl ">Total</h1>
+                    <p class="text-lg font-bold text-[24px]  mt-3" id="total">0</p>
+                </div>
+                <div class="shadow  rounded p-4">
+                    <h1>Interview</h1>
+                    <p id="interviewTotal" class="text-lg text-success  text-[24px] font-bold mt-3">0</p>
+                </div>
+                <div class="shadow rounded p-4">
+                    <h1>Total</h1>
+                    <p id="rejectTotal" class="text-lg text-error text-[24px] font-bold mt-3">0</p>
+                </div>
+            </section>
         </section>
 
     </section>
@@ -40,21 +48,24 @@
             <span id="totalAll">8 Jobs</span>
         </section>
     </section>
-    <!-- <section class=" mt-10 w-[80%] m-auto">
-        <button class="btn text-white btn-info" >All</button>
-        <button class="btn " >Interview</button>
-        <button class="btn " >Rejected</button>
+    <section class=" mt-10 w-[80%] m-auto">
+        <button onclick="filter('all')" class="btn text-white btn-info" >All</button>
+        <button onclick="filter('interview')" class="btn " >Interview</button>
+        <button onclick="filter('rejected')" class="btn " >Rejected</button>
     </section>
- -->
-<br>
-<!-- name of each tab group should be unique -->
-<div class="tabs w-[80%] m-auto tabs-box">
-  <input checked onclick="jobFilter('all')" type="radio" name="my_tabs_6" class="tab " aria-label="ALL"   checked="checked"/>
-  <div class="tab-content bg-white p-6">
 
-    <section class="mt-10 m-auto">
-        <section id="card-section">
-             <!-- <div class="card shadow my-3">
+    <br>
+
+
+    <!-- name of each tab group should be unique -->
+    <!-- <div class="tabs w-[80%] m-auto tabs-box">
+        <input checked="checked"  onclick="jobFilter('all')" type="radio" name="my_tabs_6" class="tab " aria-label="ALL"
+            />
+        <div class="tab-content bg-white p-6">
+
+            <section class="mt-10 m-auto">
+                <section id="card-section"> -->
+                    <!-- <div class="card shadow my-3">
                 <div class="card-body">
                     <h1 class="card-title">Mobile First Corp</h1>
                     <p class="mt-0 p-0">React Native Developer</p>
@@ -73,23 +84,21 @@
                 </div>
             </div> 
         </section> -->
-        </section>
-</div>
+                <!-- </section>
+        </div>
 
-  <input type="radio" onclick="jobFilter('applied')" name="my_tabs_6" class="tab" aria-label="Interview" />
-  <div class="tab-content bg-base-100 border-base-300 p-6">
-    <div id="interviewSection"></div>
-  </div>
+        <input type="radio" onclick="jobFilter('applied')" name="my_tabs_6" class="tab" aria-label="Interview" />
+        <div class="tab-content bg-base-100 border-base-300 p-6">
+            <div id="interviewSection"></div>
 
-  <input onclick="jobFilter('not-applied')"  type="radio" name="my_tabs_6" class="tab" aria-label="Rejected" />
-  <div class="tab-content bg-base-100 border-base-300 p-6">
-    <div id="rejectSection"></div>
-  </div>
-</div>
+        </div>
 
-
-
-    <!-- <section class="mt-10 w-[82%] m-auto">
+        <input onclick="jobFilter('not-applied')" type="radio" name="my_tabs_6" class="tab" aria-label="Rejected" />
+        <div class="tab-content bg-base-100 border-base-300 p-6">
+            <div id="rejectSection"></div>
+        </div>
+    </div> -->
+  <!-- <section class="mt-10 w-[82%] m-auto">
         <section id="card-section">
             <div class="card shadow my-3">
                 <div class="card-body">
@@ -109,7 +118,16 @@
             </div>
         </section>
     </section> -->
+
+
+
+
+
+
+
+
     <script src="style/tailwind.js"></script>
     <script src="main.js"></script>
 </body>
+
 </html>
