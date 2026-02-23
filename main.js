@@ -4,7 +4,7 @@ let totalAll = document.getElementById('totalAll')
 let cardSection = document.getElementById('card-section');
 let interviewSection = document.getElementById('interviewSection')
 let rejectSection = document.getElementById('rejectSection');
-
+let rejectTotal = document.getElementById('rejectTotal');
 
 
 let jobs = [
@@ -74,6 +74,9 @@ let jobs = [
     },
 ];
 let interview = [];
+let reject= [];
+
+
 total.textContent = jobs.length
 totalAll.textContent = `${jobs.length} Jobs`
 
@@ -90,8 +93,8 @@ function jobBox(data) {
                         <p class="my-2">${jobsCard.description}</p>
                     </div>
                     <div class="card-actions">
-                        <button onclick="jEvent(${jobsCard.id})"  class="btn btn-success hover:text-white btn-outline text-success">Interview</button>
-                        <button class="btn btn-error hover:text-white btn-outline text-error">Interview</button>
+                        <button onclick="selected(${jobsCard.id})"  class="btn btn-success hover:text-white btn-outline text-success">Interview</button>
+                        <button  onclick="rejected(${jobsCard.id})"  class="btn btn-error hover:text-white btn-outline text-error">Interview</button>
                     </div>
                 </div>
             </div>`
@@ -117,38 +120,101 @@ function jobFilterBox(data) {
                     </div>
                     <div class="card-actions">
                         <button class="btn btn-success hover:text-white btn-outline text-success">Interview</button>
+                        <button  onclick="rejecting(${jobsCard.id})"  class="btn btn-error hover:text-white btn-outline text-error">Interview</button>
+                    </div>
+                </div>
+            </div>`
+        let cardBody = document.createElement('div');
+        cardBody.innerHTML = card
+       
+        interviewSection.appendChild(cardBody);
+
+    })
+   
+}
+
+function rejectFilterBox(data) {
+    data.forEach(jobsCard => {
+        let card = ` <div class="card shadow my-3">
+                <div class="card-body">
+                    <h1 class="card-title">${jobsCard.title}</h1>
+                    <p class="mt-0 p-0">${jobsCard.subtitle}</p>
+                    <p class="my-2">${jobsCard.info}</p>
+                    <div>
+                        <button class="btn uppercase bg-[#eef4ff]">${jobsCard.status}</button>
+                        
+                        <p class="my-2">${jobsCard.description}</p>
+                    </div>
+                    <div class="card-actions">
+                        <button class="btn btn-success hover:text-white btn-outline text-success">Interview</button>
                         <button class="btn btn-error hover:text-white btn-outline text-error">Interview</button>
                     </div>
                 </div>
             </div>`
         let cardBody = document.createElement('div');
         cardBody.innerHTML = card
+
+        rejectSection.appendChild(cardBody);
+
+    })
+}
+
+function selected(event) {
+    jobs.forEach(element => {
+
+        if (element.id === event) {
+            console.log(element);
+            element.status = "Applied"
+            if (!interview.includes(element.id === event)) {
+                interview.push(element)
+                jobFilterBox(interview)
+            }
+        }
+        interviewTotal.textContent = interview.length
+    });
+}
+
+function jobFilterBox(data) {
+    data.forEach(jobsCard => {
+        let card = ` <div class="card shadow my-3">
+                <div class="card-body">
+                    <h1 class="card-title">${jobsCard.title}</h1>
+                    <p class="mt-0 p-0">${jobsCard.subtitle}</p>
+                    <p class="my-2">${jobsCard.info}</p>
+                    <div>
+                        <button class="btn uppercase bg-[#eef4ff]">${jobsCard.status}</button>
+                        
+                        <p class="my-2">${jobsCard.description}</p>
+                    </div>
+                    <div class="card-actions">
+                        <button class="btn btn-success hover:text-white btn-outline text-success">Interview</button>
+                        <button class="btn btn-error hover:text-white btn-outline text-error">Interview</button>
+                    </div>
+                </div>
+            </div>`
+        let cardBody = document.createElement('div');
+        cardBody.innerHTML = card
+
         interviewSection.appendChild(cardBody);
 
     })
 }
 
-function jEvent(event) {
+function rejected(event) {
     jobs.forEach(element => {
         if (element.id === event) {
             console.log(element);
-            element.status = "Applied"
-            interview.push(element)
-            jobFilterBox(interview)
+            element.status = "Rejected"
+            reject.push(element)
+            rejectFilterBox(reject)            
         }
+        rejectTotal.textContent = reject.length
     });
-    interviewTotal.textContent=interview.length
 }
 
 
 function jobFilter(filter) {
-    // let filtered = jobs.filter(job => job.status === filter)
-    // console.log(filter);
+    console.log(filter);    
 }
 
 jobBox(jobs)
-
-if (interview.length === 0) {
-    console.log('empty');
-    interviewSection.textContent='Empty'
-}
