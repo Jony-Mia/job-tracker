@@ -5,9 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v7.2.0/css/fontawesome.css">
+    <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v7.2.0/css/regular.css">
     <link rel="stylesheet" href="style/daisyui@5.css">
 </head>
 <body>
+    
     <header class="container mt-20 m-auto w-[80%]">
         <h1 class="text-2xl font-bold ">Job Application Tracker</h1>
     </header>
@@ -21,11 +24,11 @@
              </div>
              <div class="shadow  rounded p-4">
                 <h1>Interview</h1>
-                <p id="total" class="text-lg text-success  text-[24px] font-bold mt-3">0</p>
+                <p id="interviewTotal" class="text-lg text-success  text-[24px] font-bold mt-3">0</p>
              </div>
              <div class="shadow rounded p-4">
                 <h1>Total</h1>
-                <p id="total" class="text-lg text-error text-[24px] font-bold mt-3">0</p>
+                <p id="rejectTotal" class="text-lg text-error text-[24px] font-bold mt-3">0</p>
              </div>
            </section>
         </section>
@@ -34,16 +37,59 @@
     <section>
         <section class="flex justify-between mt-10 w-[80%] m-auto">
             <h1 class="font-[600] text-[20px]">Available Jobs</h1>
-            <span id="total">8 Jobs</span>
+            <span id="totalAll">8 Jobs</span>
         </section>
     </section>
-    <section class=" mt-10 w-[80%] m-auto">
+    <!-- <section class=" mt-10 w-[80%] m-auto">
         <button class="btn text-white btn-info" >All</button>
         <button class="btn " >Interview</button>
         <button class="btn " >Rejected</button>
     </section>
+ -->
+<br>
+<!-- name of each tab group should be unique -->
+<div class="tabs w-[80%] m-auto tabs-box">
+  <input checked onclick="jobFilter('all')" type="radio" name="my_tabs_6" class="tab " aria-label="ALL"   checked="checked"/>
+  <div class="tab-content bg-white p-6">
 
-    <section class="mt-10 w-[82%] m-auto">
+    <section class="mt-10 m-auto">
+        <section id="card-section">
+             <!-- <div class="card shadow my-3">
+                <div class="card-body">
+                    <h1 class="card-title">Mobile First Corp</h1>
+                    <p class="mt-0 p-0">React Native Developer</p>
+                    <p class="my-2">Remote •Full-time •$130,000 - $175,000</p>
+                    <div>
+                        <button class="btn uppercase bg-[#eef4ff]">Not Applied</button>
+                        
+                        <p class="my-2">Build cross-platform mobile applications using React Native. Work on products used by millions of users worldwide.</p>
+                    </div>
+                    <div class="card-actions">
+                        <button class="btn btn-success hover:text-white btn-outline text-success">Interview</button>
+                        <button class="btn btn-error hover:text-white btn-outline text-error">Interview</button>
+                    </div>
+                </div>
+                <div>
+                </div>
+            </div> 
+        </section> -->
+        </section>
+</div>
+
+  <input type="radio" onclick="jobFilter('applied')" name="my_tabs_6" class="tab" aria-label="Interview" />
+  <div class="tab-content bg-base-100 border-base-300 p-6">
+    <div id="interviewSection"></div>
+  </div>
+
+  <input onclick="jobFilter('not-applied')"  type="radio" name="my_tabs_6" class="tab" aria-label="Rejected" />
+  <div class="tab-content bg-base-100 border-base-300 p-6">
+    <div id="rejectSection"></div>
+  </div>
+</div>
+
+
+
+    <!-- <section class="mt-10 w-[82%] m-auto">
         <section id="card-section">
             <div class="card shadow my-3">
                 <div class="card-body">
@@ -62,7 +108,7 @@
                 </div>
             </div>
         </section>
-    </section>
+    </section> -->
     <script src="style/tailwind.js"></script>
     <script src="main.js"></script>
 </body>
