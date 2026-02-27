@@ -7,6 +7,9 @@ let btn = document.querySelectorAll('button.btn')
 let total = document.getElementById('total')
 let interviewTotal = document.getElementById('interviewTotal')
 let rejectTotal = document.getElementById('rejectTotal');
+let all = document.getElementById('all');
+let interFilter =  document.getElementById('interFilter');
+let rejectFilter = document.getElementById('rejectFilter');
 
 // let removeEle = document.getElementById('removeEle');
 
@@ -164,12 +167,22 @@ function filterJob(type){
 
       if (type==='interview')
          {
-            totalAll.textContent= `${jobs.filter(job=>job.state==="interview").length} of 8`
+            totalAll.textContent= `${jobs.filter(job=>job.state==="interview").length} of 8`;
+            all.className="btn text-black"
+            interFilter.className="btn btn-info text-white";
+            rejectFilter.className="btn text-black"
+
         } 
         else if(type==='rejected'){
-            totalAll.textContent= `${jobs.filter(job=>job.state==="rejected").length}of 8`;    
+            totalAll.textContent= `${jobs.filter(job=>job.state==="rejected").length} of 8`;
+             all.className="btn text-black"
+            rejectFilter.className="btn btn-info text-white";
+            interFilter.className="btn text-black"    
         }else{
-              totalAll.textContent=jobs.length
+              totalAll.textContent=jobs.length;
+               interFilter.className="btn text-black"
+            all.className="btn btn-info text-white";
+            rejectFilter.className="btn text-black"
         }
         
     
@@ -185,4 +198,3 @@ function deleteJob(id){
 }
 clearDashboard();
 renderJob()
-
