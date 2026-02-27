@@ -175,12 +175,12 @@ function filterJob(type){
         } 
         else if(type==='rejected'){
             totalAll.textContent= `${jobs.filter(job=>job.state==="rejected").length} of 8`;
-             all.className="btn text-black"
+            all.className="btn text-black"
             rejectFilter.className="btn btn-info text-white";
             interFilter.className="btn text-black"    
         }else{
-              totalAll.textContent=jobs.length;
-               interFilter.className="btn text-black"
+            totalAll.textContent=jobs.length;
+            interFilter.className="btn text-black"
             all.className="btn btn-info text-white";
             rejectFilter.className="btn text-black"
         }
