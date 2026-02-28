@@ -37,7 +37,7 @@ let jobs = [
         title: 'DataViz Solutions',
         subtitle: 'Data Visualization Specialist',
         info: 'Boston, MA •Full-time • $125,000 - $165,000',
-        status: 'applied',
+        status: 'not-applied',
         state: 'none',
         description: 'Transform complex data into compelling visualizations. Required skills: D3.js, React, and strong analytical thinking.'
     },
@@ -64,7 +64,7 @@ let jobs = [
         title: 'MegaCorp Solutions',
         subtitle: 'JavaScript Developer',
         info: 'New York, NY •Full-time •$130,000 - $170,00',
-        status: 'applied',
+        status: 'not-applied',
         state: 'none',
         description: 'Build enterprise applications with JavaScript and modern frameworks. We offer competitive compensation, health insurance, and professional development opportunities.'
     },
