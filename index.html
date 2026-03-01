@@ -25,15 +25,15 @@
 
         <section class="container m-auto">
             <section class="  w-full m-auto sm:gap-2 md:gap-5 gap-3 justify-center flex-wrap flex ">
-                <div class=" sm:w-full md:w-[30%] w-[30%]  shadow  rounded p-4">
+                <div class="border border-neutral sm:w-full md:w-[30%] w-[30%]  shadow  rounded p-4">
                     <h1 class="text-xl ">Total</h1>
                     <p class="text-lg font-bold text-[24px]  mt-3" id="total">0</p>
                 </div>
-                <div class=" sm:w-full md:w-[30%] w-[30%]  shadow  rounded p-4">
+                <div class="border border-accent  sm:w-full md:w-[30%] w-[30%]  shadow  rounded p-4">
                     <h1>Interview</h1>
                     <p id="interviewTotal" class="text-lg text-success  text-[24px] font-bold mt-3">0</p>
                 </div>
-                <div class=" sm:w-full md:w-[30%] w-[30%]   shadow rounded p-4">
+                <div class=" border border-error sm:w-full md:w-[30%] w-[30%]   shadow rounded p-4">
                     <h1>Total</h1>
                     <p id="rejectTotal" class="text-lg text-error text-[24px] font-bold mt-3">0</p>
                 </div>
@@ -41,13 +41,13 @@
         </section>
 
     </section>
-    <section>
-        <section class="flex justify-between mt-10 w-[80%] m-auto">
+    <section >
+        <section class="flex justify-between mt-10 container w-[80%] m-auto">
             <h1 class="font-[600] text-[20px]">Available Jobs</h1>
             <span id="totalAll">8 Jobs</span>
         </section>
     </section>
-    <section class=" mt-10 w-[80%] m-auto">
+    <section class=" container p-5 pb-0 m-auto">
         <button id="all" onclick="filterJob('all')" class="btn text-white btn-info">All</button>
         <button id="interFilter" onclick="filterJob('interview')" class="btn ">Interview</button>
         <button id="rejectFilter" onclick="filterJob('rejected')" class="btn ">Rejected</button>
@@ -55,8 +55,10 @@
 
     <br>
 
-    <div class="w-[80%] m-auto" id="interviewSection"></div>
+<div class="container p-5 m-auto">
+    <div class="m-auto" id="interviewSection"></div>
 
+</div>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 
     <script src="main.js"></script>
