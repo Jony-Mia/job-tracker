@@ -5,10 +5,12 @@ let rejectSection = document.getElementById('rejectSection');
 let btn = document.querySelectorAll('button.btn')
 let total = document.getElementById('total')
 let interviewTotal = document.getElementById('interviewTotal')
-let all = document.getElementById('all')
-let interviewFilter = document.getElementById('interviewFilter')
 let rejectTotal = document.getElementById('rejectTotal')
-let rejectedFilter = document.getElementById('rejectedFilter')
+
+
+let all = document.getElementById('all')
+let interFilter = document.getElementById('interFilter')
+let rejectFilter = document.getElementById('rejectFilter')
 
 
 let jobs = [
@@ -145,7 +147,7 @@ function setState(id, state) {
     renderJob()
 }
 
-function filterJob(type) {
+/*function filterJob(type) {
     
     if (type === 'interview')
     {
@@ -175,6 +177,33 @@ function filterJob(type) {
     
     
     filterState = type;
+    renderJob()
+}*/
+
+function filterJob(type){
+
+      if (type==='interview')
+         {
+            totalAll.textContent= `${jobs.filter(job=>job.state==="interview").length} of 8`;
+            all.className="btn text-black"
+            interFilter.className="btn btn-info text-white";
+            rejectFilter.className="btn text-black"
+
+        } 
+        else if(type==='rejected'){
+            totalAll.textContent= `${jobs.filter(job=>job.state==="rejected").length} of 8`;
+            all.className="btn text-black"
+            rejectFilter.className="btn btn-info text-white";
+            interFilter.className="btn text-black"    
+        }else{
+            totalAll.textContent=jobs.length;
+            interFilter.className="btn text-black"
+            all.className="btn btn-info text-white";
+            rejectFilter.className="btn text-black"
+        }
+        
+    
+    filterState= type;
     renderJob()
 }
 
