@@ -113,7 +113,7 @@ function renderJob() {
         
         
         let cardBody = `
-            <button class="btn btn-circle btn-error btn-soft text-white absolute top-2 right-2" onclick="deleteJob(${jobsCard.id})">
+            <button class="btn btn-circle btn-error btn-soft hover:text-white absolute top-2 right-2" onclick="deleteJob(${jobsCard.id})">
             <i class="fa-solid fa-trash"></i> </button>
                 <div class="card-body">
                     <h1 class="card-title">${jobsCard.title}</h1>
